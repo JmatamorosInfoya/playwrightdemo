@@ -1,5 +1,5 @@
 import { Locator, expect } from "@playwright/test";
-import { page } from "../steps/generalSteps";
+import { page } from "../steps/hooks";
 
 
 
@@ -18,7 +18,9 @@ class mainPage {
                 element =  page.locator('//*[text()="' + text + '"]');
                 break;
             case "attibute":
-                element =  page.locator('[' + selectorType + '="' + text + '"]');
+                const attibute = text.split(",")[0];
+                const attibuteValue = text.split(",")[1];
+                element =  page.locator('[' + attibute + '="' + attibuteValue + '"]');
                 break;
             case "tag":
                 element =  page.locator(text);

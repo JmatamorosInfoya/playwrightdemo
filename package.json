@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cucumber-js -p test_runner --tags @demo"
+    "test": "npx cucumber-js -p test_runner --tags @test --world-parameters '{\"headless\":\"false\"}'",
+    "parallelRun" : "npx cucumber-js -p test_runner --tags @test --parallel 2 --world-parameters '{\"headless\":\"true\"}'"
   },
   "keywords": [],
   "author": "",

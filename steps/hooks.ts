@@ -1,5 +1,6 @@
-import { After, AfterAll, Before, BeforeAll, setDefaultTimeout } from "@cucumber/cucumber";
+import {  AfterAll, BeforeAll, setDefaultTimeout, World } from "@cucumber/cucumber";
 import { Browser, chromium, Page } from "playwright";
+
 
 let page: Page;
 let browser: Browser;
@@ -8,7 +9,7 @@ setDefaultTimeout(40000)
 
 BeforeAll(async () => {
     try {
-        browser = await chromium.launch({ headless: false });
+        browser = await chromium.launch({ headless: true });
         const context = await browser.newContext();
         await context.grantPermissions(['geolocation'], {origin: 'https://www.qp-gcp.homedepot.ca/'});
         page = await context.newPage();
